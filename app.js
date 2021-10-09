@@ -45,17 +45,18 @@ async function getDeckId() {
 }
 
 startGameButton.addEventListener("click", async function (e) {
-  // remove "to get started text"
-  let getStartedText = document.getElementsByTagName("P").item(2);
-  document.body.removeChild(getStartedText);
-
-  // insert "draw cards" help text
+  // create new "draw cards" text
+  let getStartedTextElem = document.getElementsByTagName("P").item(2);
   let drawCardsText = document.createTextNode(
     "War! Press the 'Draw Cards' button to draw two cards, one for each player, in unison."
   );
-  let newPElement = document.createElement("P");
-  newPElement.appendChild(drawCardsText);
-  document.body.appendChild(newPElement);
+  let drawCardsTextElem = document.createElement("P");
+  drawCardsTextElem.appendChild(drawCardsText);
+
+  // insert "draw cards" text before "get started" text
+  document.body.insertBefore(drawCardsTextElem, getStartedTextElem);
+  // remove "get started" text
+  document.body.removeChild(getStartedTextElem);
 
   startGameButton.disabled = true;
   drawCardsButton.disabled = false;
