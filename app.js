@@ -2,9 +2,6 @@ const startGameButton = document.getElementById("start-game");
 const drawCardsButton = document.getElementById("draw-cards");
 drawCardsButton.disabled = true;
 
-const helpText = document.getElementById("help-text");
-helpText.innerHTML = `<p>To get started, press the "Start Game" button.</p>`;
-
 const cardImageA = document.getElementById("card-img-A");
 const cardImageB = document.getElementById("card-img-B");
 
@@ -48,14 +45,23 @@ async function getDeckId() {
 }
 
 startGameButton.addEventListener("click", async function (e) {
-  helpText.innerHTML = `<h2>War!</h2> \n <p>Press the "Draw Cards" button to draw two cards, one for each player, in unison.</p>`;
+  // remove "to get started text"
+  var getStartedText = document.getElementsByTagName("P").item(2);
+  let throwawayNode = document.body.removeChild(getStartedText);
+
+  // insert "draw cards" help text
+  var drawCardsText = document.createTextNode(
+    "War! Press the 'Draw Cards' button to draw two cards, one for each player, in unison."
+  );
+  var newPElement = document.createElement("P");
+  newPElement.appendChild(drawCardsText);
+  document.body.appendChild(newPElement);
   startGameButton.disabled = true;
   drawCardsButton.disabled = false;
 });
 
 drawCardsButton.addEventListener("click", async function (e) {
   try {
-    helpText.innerHTML = `<h2>War!</h2>`;
     const drawCardUrlA = `https://deckofcardsapi.com/api/deck/${deckIdA}/draw/?count=1`;
     const drawCardUrlB = `https://deckofcardsapi.com/api/deck/${deckIdB}/draw/?count=1`;
 
@@ -102,4 +108,5 @@ drawCardsButton.addEventListener("click", async function (e) {
   }
 });
 
+// setup();
 getDeckId();
