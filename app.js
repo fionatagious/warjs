@@ -2,9 +2,6 @@ const startGameButton = document.getElementById("start-game");
 const drawCardsButton = document.getElementById("draw-cards");
 drawCardsButton.disabled = true;
 
-// const cardImageA = document.getElementById("card-img-A");
-// const cardImageB = document.getElementById("card-img-B");
-
 const score = document.getElementById("score");
 
 const url = "https://deckofcardsapi.com/api/deck/new/shuffle";
@@ -82,14 +79,12 @@ drawCardsButton.addEventListener("click", async function (e) {
     // player A: show card face
     const cardImageA = document.getElementById("cardfaceA");
     cardImageA.src = `${drawnCardA.image}`;
-    cardImageB.alt = `${drawnCardA.value} of ${drawnCardA.suit}`;
-    // document.body.appendChild(cardImageA);
+    cardImageA.alt = `${drawnCardA.value} of ${drawnCardA.suit}`;
 
     // player B: show card face
     const cardImageB = document.getElementById("cardfaceB");
     cardImageB.src = `${drawnCardB.image}`;
     cardImageB.alt = `${drawnCardB.value} of ${drawnCardB.suit}`;
-    // document.body.appendChild(cardImageB);
 
     // battle
     let playerA = RANKS[drawnCardA.value];

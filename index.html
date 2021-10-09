@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>War Card Game</title>
   <script src="app.js" type="module"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>War Card Game</h1>
@@ -13,15 +14,15 @@
   <button id="start-game">Start Game</button>
   <button id="draw-cards">Draw Cards</button>
   <p>To get started, press the "Start Game" button.</p>
-  <div>
-    <h3>Player A</h3>
+  <div class="grid">
     <div class="playerA">
-      <div id="scoreA"></div>
+      <h3>Player A</h3>
+      <!-- <div id="scoreA">0</div> -->
       <img id="cardfaceA" />
     </div>
-    <h3>Player B</h3>
     <div class="playerB">
-      <div id="scoreB"></div>
+      <h3>Player B</h3>
+      <!-- <div id="scoreB">0</div> -->
       <img id="cardfaceB" />
     </div>
   </div>
