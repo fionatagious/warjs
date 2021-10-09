@@ -2,8 +2,8 @@ const startGameButton = document.getElementById("start-game");
 const drawCardsButton = document.getElementById("draw-cards");
 drawCardsButton.disabled = true;
 
-const cardImageA = document.getElementById("card-img-A");
-const cardImageB = document.getElementById("card-img-B");
+// const cardImageA = document.getElementById("card-img-A");
+// const cardImageB = document.getElementById("card-img-B");
 
 const score = document.getElementById("score");
 
@@ -46,22 +46,26 @@ async function getDeckId() {
 
 startGameButton.addEventListener("click", async function (e) {
   // remove "to get started text"
-  var getStartedText = document.getElementsByTagName("P").item(2);
-  let throwawayNode = document.body.removeChild(getStartedText);
+  let getStartedText = document.getElementsByTagName("P").item(2);
+  document.body.removeChild(getStartedText);
 
   // insert "draw cards" help text
-  var drawCardsText = document.createTextNode(
+  let drawCardsText = document.createTextNode(
     "War! Press the 'Draw Cards' button to draw two cards, one for each player, in unison."
   );
-  var newPElement = document.createElement("P");
+  let newPElement = document.createElement("P");
   newPElement.appendChild(drawCardsText);
   document.body.appendChild(newPElement);
+
   startGameButton.disabled = true;
   drawCardsButton.disabled = false;
 });
 
 drawCardsButton.addEventListener("click", async function (e) {
   try {
+    // remove "draw cards" help text
+    document.body.removeChild(document.getElementsByTagName("P").item(2));
+
     const drawCardUrlA = `https://deckofcardsapi.com/api/deck/${deckIdA}/draw/?count=1`;
     const drawCardUrlB = `https://deckofcardsapi.com/api/deck/${deckIdB}/draw/?count=1`;
 
@@ -74,10 +78,29 @@ drawCardsButton.addEventListener("click", async function (e) {
     const drawnCardA = cardA.cards[0];
     const drawnCardB = cardB.cards[0];
 
-    // show card face
-    cardImageA.innerHTML = `<h3>Player A</h3> \n <img src=${drawnCardA.image} alt="${drawnCardB.value} of ${drawnCardB.suit}">`;
-    cardImageB.innerHTML = `<h3>Player B</h3> \n <img src=${drawnCardB.image} alt="${drawnCardB.value} of ${drawnCardB.suit}">`;
+    // player A show card face
+    let playerAText = document.createTextNode("Player A");
+    let playerAHeader = document.createElement("H3");
+    playerAHeader.appendChild(playerAText);
+    document.body.appendChild(playerAHeader);
 
+    const cardImageA = document.createElement("img");
+    cardImageA.src = `${drawnCardA.image}`;
+    cardImageB.alt = `${drawnCardA.value} of ${drawnCardA.suit}`;
+    document.body.appendChild(cardImageA);
+
+    // player B show card face
+    let playerBText = document.createTextNode("Player B");
+    let playerBHeader = document.createElement("H3");
+    playerBHeader.appendChild(playerBText);
+    document.body.appendChild(playerBHeader);
+
+    const cardImageB = document.createElement("img");
+    cardImageB.src = `${drawnCardB.image}`;
+    cardImageB.alt = `${drawnCardB.value} of ${drawnCardB.suit}`;
+    document.body.appendChild(cardImageB);
+
+    // battle logic
     let playerA = RANKS[drawnCardA.value];
     let playerB = RANKS[drawnCardB.value];
 
