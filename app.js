@@ -78,29 +78,19 @@ drawCardsButton.addEventListener("click", async function (e) {
     const drawnCardA = cardA.cards[0];
     const drawnCardB = cardB.cards[0];
 
-    // player A show card face
-    let playerAText = document.createTextNode("Player A");
-    let playerAHeader = document.createElement("H3");
-    playerAHeader.appendChild(playerAText);
-    document.body.appendChild(playerAHeader);
-
-    const cardImageA = document.createElement("img");
+    // player A: show card face
+    const cardImageA = document.getElementById("cardfaceA");
     cardImageA.src = `${drawnCardA.image}`;
     cardImageB.alt = `${drawnCardA.value} of ${drawnCardA.suit}`;
-    document.body.appendChild(cardImageA);
+    // document.body.appendChild(cardImageA);
 
-    // player B show card face
-    let playerBText = document.createTextNode("Player B");
-    let playerBHeader = document.createElement("H3");
-    playerBHeader.appendChild(playerBText);
-    document.body.appendChild(playerBHeader);
-
-    const cardImageB = document.createElement("img");
+    // player B: show card face
+    const cardImageB = document.getElementById("cardfaceB");
     cardImageB.src = `${drawnCardB.image}`;
     cardImageB.alt = `${drawnCardB.value} of ${drawnCardB.suit}`;
-    document.body.appendChild(cardImageB);
+    // document.body.appendChild(cardImageB);
 
-    // battle logic
+    // battle
     let playerA = RANKS[drawnCardA.value];
     let playerB = RANKS[drawnCardB.value];
 
