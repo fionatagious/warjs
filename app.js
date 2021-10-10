@@ -45,15 +45,16 @@ startGameButton.addEventListener("click", async function (e) {
   // create new "draw cards" text
   let getStartedTextElem = document.getElementsByTagName("P").item(2);
   let drawCardsText = document.createTextNode(
-    "War! Press the 'Draw Cards' button to draw two cards, one for each player, in unison."
+    "War! Press the 'Draw Cards' button to draw two cards, one for each player, in unison. Continue drawing cards until players run out of cards."
   );
   let drawCardsTextElem = document.createElement("P");
   drawCardsTextElem.appendChild(drawCardsText);
 
-  // insert "draw cards" text before "get started" text
-  document.body.insertBefore(drawCardsTextElem, getStartedTextElem);
+  // insert "draw cards" elem before "get started" elem
+  let all = document.getElementById("all");
+  all.insertBefore(drawCardsTextElem, getStartedTextElem);
   // remove "get started" text
-  document.body.removeChild(getStartedTextElem);
+  all.removeChild(getStartedTextElem);
 
   startGameButton.disabled = true;
   drawCardsButton.disabled = false;
@@ -61,9 +62,6 @@ startGameButton.addEventListener("click", async function (e) {
 
 drawCardsButton.addEventListener("click", async function (e) {
   try {
-    // remove "draw cards" help text
-    document.body.removeChild(document.getElementsByTagName("P").item(2));
-
     const drawCardUrlA = `https://deckofcardsapi.com/api/deck/${deckIdA}/draw/?count=1`;
     const drawCardUrlB = `https://deckofcardsapi.com/api/deck/${deckIdB}/draw/?count=1`;
 

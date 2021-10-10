@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>War Card Game</title>
   <script src="app.js" type="module"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>War Card Game</h1>
-  <p>War is a card game played by two players using a standard playing card deck. To win the game, a player must earn more points than the other player.</p>
-  <p>In this simplified version of War, each player gets a full deck of 52 cards. In unison, each player draws a card from their deck—this is a "battle"—and the player with the higher card earns 1 point. If there is a tie, neither player earns a point. Aces are high, and suits are ignored.</p>
-  <button id="start-game">Start Game</button>
-  <button id="draw-cards">Draw Cards</button>
-  <p>To get started, press the "Start Game" button.</p>
-  <div class="grid">
-    <div class="playerA">
-      <h3>Player A</h3>
-      <!-- <div id="scoreA">0</div> -->
-      <img id="cardfaceA" />
+  <div id="all">
+    <h1>War Card Game</h1>
+    <p>War is a card game played by two players using a standard playing card deck. To win the game, a player must earn more points than the other player.</p>
+    <p>In this simplified version of War, each player gets a full deck of 52 cards. In unison, each player draws a card from their deck—this is a "battle"—and the player with the higher card earns 1 point. If there is a tie, neither player earns a point. Aces are high, and suits are ignored.</p>
+    <button id="start-game">Start Game</button>
+    <button id="draw-cards">Draw Cards</button>
+    <p>To get started, press the "Start Game" button.</p>
+    <div class="grid">
+      <div class="playerA">
+        <h3>Player A</h3>
+        <img id="cardfaceA" />
+      </div>
+      <div class="playerB">
+        <h3>Player B</h3>
+        <img id="cardfaceB" />
+      </div>
     </div>
-    <div class="playerB">
-      <h3>Player B</h3>
-      <!-- <div id="scoreB">0</div> -->
-      <img id="cardfaceB" />
-    </div>
+    <div id="score"></div>
   </div>
-  <div id="score"></div>
 </body>
 </html>
