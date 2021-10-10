@@ -1,10 +1,26 @@
 #all {
-    width: 60%;
+    width: 70%;
+}
+
+#score {
+    font-family: 'Arial';
 }
 
 body {
     display: flex;
     justify-content: center;
+}
+
+h1 {
+    font-family: 'Arial';
+}
+
+h3 {
+    font-family: 'Arial';
+}
+
+p {
+    font-family: 'Arial';
 }
 
 .grid {
