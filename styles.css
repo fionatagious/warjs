@@ -12,20 +12,13 @@
     font-family: 'Arial';
 }
 
-#start-game {
+#start-game, #draw-cards {
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 3px;
     padding-bottom: 3px;
     border-radius: 5px;
-}
-
-#draw-cards {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 5px;
+    background-color: rgb(220, 183, 255);
 }
 
 body {
