@@ -1,9 +1,31 @@
 #all {
-    width: 70%;
+    width: 65%;
+    background-color:rgb(255, 246, 206);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
 }
 
 #score {
     font-family: 'Arial';
+}
+
+#start-game {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+}
+
+#draw-cards {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
 }
 
 body {
